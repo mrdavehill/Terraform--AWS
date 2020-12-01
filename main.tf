@@ -18,10 +18,10 @@ resource "aws_vpc" "vpc" {
   tags = local.common_tags
 }
 
-resource "aws_subnet" "subnet-a" {
+resource "aws_subnet" "subnet" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.az-a_cidr
-  availability_zone       = var.az-a 
+  cidr_block              = var.az_cidr[0]
+  availability_zone       = var.az[0]
   map_public_ip_on_launch = "true"
 
   depends_on              = [aws_internet_gateway.igw]
@@ -30,7 +30,7 @@ resource "aws_subnet" "subnet-a" {
 
 resource "aws_instance" "ec2" {
 
-  subnet_id              = aws_subnet.subnet-a.id
+  subnet_id              = aws_subnet.subnet.id
   ami                    = var.ami
   instance_type          = "t2.micro"
 
@@ -57,7 +57,7 @@ resource "aws_route_table" "rt" {
 }
 
 resource "aws_route_table_association" "rta" {
-  subnet_id      = aws_subnet.subnet-a.id
+  subnet_id      = aws_subnet.subnet.id
   route_table_id = aws_route_table.rt.id
 }
 

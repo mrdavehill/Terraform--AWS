@@ -15,12 +15,14 @@ variable "vpc_cidr" {
     default = "10.0.0.0/24"
 }
 
-variable "az-a_cidr" {
-    default = "10.0.0.0/27"
+variable "az_cidr" {
+    type    = list
+    default = ["10.0.0.0/26", "10.0.0.64/26", "10.0.0.128/26", "10.0.0.194/26"]
 }
 
-variable "az-a" {
-    default = "us-west-2a"
+variable "az" {
+    type    = list   
+    default = ["us-west-2a", "us-west-2b", "us-west-2c"]
 }
 
 variable "ami" {
