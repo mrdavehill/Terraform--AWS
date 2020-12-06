@@ -57,7 +57,6 @@ resource "aws_internet_gateway" "igw" {
 
 resource "aws_route_table" "rt" {
   vpc_id = aws_vpc.vpc.id
-  
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
@@ -67,14 +66,11 @@ resource "aws_route_table" "rt" {
 resource "aws_route_table_association" "rta" {
   subnet_id      = aws_subnet.subnet.id
   route_table_id = aws_route_table.rt.id
-
-  tags = local.common_tags
 }
 
 resource "aws_security_group" "icmp" {
   name                = "allow ICMP"
-  vpc_id              = aws_vpc.vpc.id 
-  tags = local.common_tags
+  vpc_id              = aws_vpc.vpc.id
   ingress {
       from_port       = 0
       to_port         = 0
@@ -96,8 +92,7 @@ resource "aws_security_group" "icmp" {
 
 resource "aws_security_group" "ssh" {
   name                = "allow SSH"
-  vpc_id              = aws_vpc.vpc.route_table_id
-  tags = local.common_tags
+  vpc_id              = aws_vpc.vpc.id
     ingress {
       from_port       = 22
       to_port         = 22
