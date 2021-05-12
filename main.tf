@@ -38,16 +38,6 @@ resource "aws_instance" "ec2" {
   security_groups = [aws_security_group.ssh.id, aws_security_group.icmp.id]
 
   key_name               = var.ssh_key
-  
-  #this doesn't work
-  user_data = <<-EOF
-    #! /bin/bash
-    sudo apt-update
-    git clone https://github.com/ahervias77/portscanner.git
-    EOF
-
-  tags = local.common_tags
-}
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
