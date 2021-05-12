@@ -53,6 +53,6 @@ variable "amis" {
 }
 
 variable "ssh_key" {
-    default = "aws_ssh_key_aws.eveldave"
+    default = "aws_ssh_key_aws.mykey"
 }
 
