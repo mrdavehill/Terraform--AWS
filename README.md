@@ -16,6 +16,8 @@ Spins up an EC2 in Oregon ready for accessing over SSH
 
 ### How to test the software
 
+Install Terraform and install AWS creds as you see fit
+
 Create a key in US-West 2 called mykey and install the .pem file in ~/.ssh 
 
 git clone https://github.com/mrdavehill/Terraform--AWS
