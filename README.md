@@ -6,7 +6,7 @@ On this page:
 
 main.tf - framework for cloud infra being deployed
 
-outputs.tf - gets the resource name of the EC2 once it's been created
+outputs.tf - gets the resource name of the EC2 once instantiated
 
 variables.tf - variables being called by main.tf
  
@@ -24,7 +24,7 @@ terraform init
 
 terraform apply
 
-ssh -i ~/.ssh/aws_ssh_key.pem ec2-user@$(terraform output public_ip)
+ssh -i ~/.ssh/mykey.pem ec2-user@$(terraform output public_ip)
 
 ### Getting help
 
