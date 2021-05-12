@@ -1,7 +1,5 @@
 ## Terraform-AWS
 
-Occasionally I need an EC2 to test connectivity to a resource, run trace-route or just stuff
-
 On this page:
 
 main.tf - framework for cloud infra being deployed
