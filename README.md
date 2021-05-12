@@ -12,7 +12,7 @@ variables.tf - variables being called by main.tf
  
 ### Use Case Description
 
-Spins up an EC2 in Oregon and is ready for accessing over SSH
+Spins up an EC2 in Oregon ready for accessing over SSH
 
 ### How to test the software
 
